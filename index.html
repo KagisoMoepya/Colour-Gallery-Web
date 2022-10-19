@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/index.css">
+    <script type="modules" src="./javascript/index.js" defer></script>
+    <title>Colour Gallery</title>
+</head>
+<body>
+
+    <h1 id=title>Colour Gallery</h1>
+
+    <div id="form_modal">
+
+        <form>
+
+            <h2>Colour Entry</h2>
+    
+            <div class="input_wrappers">
+                <input type="text" name="valid_css_colour" id="valid_css_colour" autocomplete="off" required>
+                <label for="valid_css_colour">Valid CSS colour Type</label>
+            </div>
+    
+            <div class="input_wrappers">
+                <input type="text" name="colour_name" id="colour_name" autocomplete="off" required>
+                <label for="colour_name">Colour Name</label>
+            </div>
+    
+            <div class="input_wrappers">
+                <button type="submit">Add Colour</button>
+            </div>
+    
+        </form>
+
+    </div>
+
+    <!-- <div id="help_modal"></div> -->
+
+    <div id="functionality_buttons">
+        <div id="help_button" class="buttons">
+            <span class="material-icons-round">question_mark</span>
+        </div>
+        <div id="add_button" class="buttons">
+            <span class="material-icons-round">add</span>
+        </div>
+    </div>
+
+    
+</body>
+</html>
