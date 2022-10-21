@@ -2,6 +2,7 @@ export class ColoursController {
 
     constructor() {
         this.types = ['rgb',  'rgba', 'hsl', 'hsla', '#']
+        this.defaultColours = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
         this.colours_list = []
     }
 
@@ -24,5 +25,6 @@ export class ColoursController {
     removeColour(key) {
         const filtered_colours_list = this.colours_list.filter(colour => colour.getKey !== key)
         this.colours_list = filtered_colours_list
+        console.log(this.colours_list);
     }
 }

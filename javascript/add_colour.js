@@ -8,11 +8,11 @@ const form_modal = document.querySelector('#form_modal')
 
 add_button.addEventListener('click', e => {
     form_modal.style.left = '0%'
-
 })
 
 form_modal.addEventListener('click', e =>  {
     form_modal.style.left = '-100%'
+    form.reset()
 })
 
 form.addEventListener('click', e =>  {

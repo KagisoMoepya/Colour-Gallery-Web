@@ -33,15 +33,4 @@ export class Colour {
     set setKey(key) {
         this.key = key
     }
-
-    get colourHtml() {
-        return (
-            `
-            <div class="colour_wrapper" key="${this.key}" value="${this.valid_css_colour}">
-                <div class="colour_name">Red</div>
-                <div class="remove_colour"><b>&times;</b></div>
-            </div>
-            `
-        )
-    }
 }

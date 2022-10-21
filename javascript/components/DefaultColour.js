@@ -10,4 +10,12 @@ export class DefaultColour extends Colour {
     get getColourVersion() {
         return this.version
     }
+
+    get colourHtml() {
+        return `
+            <div class="colour_wrapper" key="${this.key}" value="${this.valid_css_colour}">
+                <div class="colour_name">${this.name}</div>
+            </div>
+        `
+    }
 }
