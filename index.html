@@ -7,11 +7,20 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="./styles/index.css">
     <script type="module" src="./javascript/index.js" defer></script>
+    <script type="module" src="./javascript/add_colour.js" defer></script>
+    <script type="module" src="./javascript/help.js" defer></script>
     <title>Colour Gallery</title>
 </head>
 <body>
 
     <h1 id=title>Colour Gallery</h1>
+
+    <div id="colours_container">
+        <div class="colour_wrapper" value="${this.key}">
+            <div class="colour_name">Red</div>
+            <div class="remove_colour"><b>&times;</b></div>
+        </div>
+    </div>
 
     <div id="form_modal">
 
@@ -21,7 +30,7 @@
     
             <div class="input_wrappers">
                 <input type="text" name="valid_css_colour" id="valid_css_colour" autocomplete="off" required>
-                <label for="valid_css_colour">Valid CSS colour Type</label>
+                <label for="valid_css_colour">Valid CSS Colour Type</label>
             </div>
     
             <div class="input_wrappers">
@@ -30,14 +39,32 @@
             </div>
     
             <div class="input_wrappers">
-                <button type="submit">Add Colour</button>
+                <input type="submit" value="Add Colour">
             </div>
     
         </form>
 
     </div>
 
-    <!-- <div id="help_modal"></div> -->
+    <div id="help_modal">
+
+        <div id="help_info_container">
+
+            <h4 id="help_heading">Color Formats Accepted</h4>
+    
+            <ul>
+                <li>Hexadecimal colors</li>
+                <li>Hexadecimal colors with transparency</li>
+                <li>RGB colors</li>
+                <li>RGBA colors</li>
+                <li>HSL colors</li>
+                <li>HSLA colors</li>
+                <li>Predefined/Cross-browser color names</li>
+            </ul>
+    
+        </div>
+
+    </div>
 
     <div id="functionality_buttons">
         <div id="help_button" class="buttons">
@@ -47,7 +74,6 @@
             <span class="material-icons-round">add</span>
         </div>
     </div>
-
     
 </body>
 </html>

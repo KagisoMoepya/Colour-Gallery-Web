@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto&family=Varela+Round&display=swap");
 :root {
+  --form_colour: white;
   --body_colour: #d7d7d7;
   --background-colour: #f0f0f0;
+  --standard-filter: blur(5px);
+  --seconds: 0.2s ;
 }
 
 body {
@@ -11,6 +14,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-family: "Varela Round", sans-serif;
   background-color: var(--body_colour);
+  overflow-x: hidden !important;
   cursor: default;
 }
 
@@ -19,8 +23,56 @@ body {
   font-size: 3rem;
 }
 
-#functionality_buttons {
+#colours_container {
+  position: relative;
+  top: 2rem;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#colours_container .colour_wrapper {
+  position: relative;
+  border: 3px solid var(--form_colour);
+  min-width: 9rem;
+  height: 2.5rem;
+  border-radius: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1% 0 1% 0;
+  transition: all var(--seconds) ease-out;
+}
+#colours_container .colour_wrapper .colour_name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: all var(--seconds) ease-out;
+}
+#colours_container .colour_wrapper .colour_name p {
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#colours_container .colour_wrapper .colour_name:hover {
+  letter-spacing: 1.5px;
+}
+#colours_container .remove_colour {
   position: absolute;
+  right: 1rem;
+}
+#colours_container .remove_colour:hover {
+  font-size: 1.15rem;
+}
+
+#functionality_buttons {
+  position: fixed;
   right: 1.5rem;
   bottom: 1rem;
   display: flex;
@@ -36,19 +88,121 @@ body {
   background-color: var(--background-colour);
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  transition: all var(--seconds) ease-out;
 }
 #functionality_buttons .buttons:hover {
   color: var(--background-colour);
   background-color: black;
 }
 
+#form_modal {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: var(--standard-filter);
+  z-index: 1;
+  transition: left var(--seconds) ease-out;
+}
+#form_modal form {
+  width: 20rem;
+  min-height: 15rem;
+  border-radius: 20px;
+  background-color: var(--form_colour);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+#form_modal form h2 {
+  position: relative;
+  top: 0.25rem;
+  text-align: center;
+}
+#form_modal form .input_wrappers {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all var(--seconds) ease-out;
+}
+#form_modal form .input_wrappers input {
+  height: 2rem;
+  font-family: "Raleway", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Varela Round", sans-serif;
+}
+#form_modal form .input_wrappers input:not(input[type=submit]) {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #adadad;
+  padding: 0 0 0 10px;
+  cursor: text;
+}
+#form_modal form .input_wrappers input:focus ~ label, #form_modal form .input_wrappers input:valid ~ label {
+  left: 100%;
+}
+#form_modal form .input_wrappers label {
+  width: fit-content;
+  position: relative;
+  bottom: 1.5rem;
+  left: 5%;
+  color: #adadad;
+  transition: all 0.5s ease-out;
+  font-size: 0.9rem;
+  cursor: text;
+}
+#form_modal form .input_wrappers input[type=submit] {
+  border: none;
+  outline: none;
+  margin-bottom: 7.5%;
+  border-radius: 700px;
+  background-color: #adadad;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+#form_modal form .input_wrappers input[type=submit]:hover {
+  background-color: #b8b8b8;
+}
+#form_modal form .input_wrappers:nth-child(3) {
+  height: 0;
+}
+
 #help_modal {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   z-index: 1;
-  min-width: 100vw;
-  min-height: 100vh;
-  backdrop-filter: blur(5px);
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: var(--standard-filter);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: left var(--seconds) ease-out;
+}
+#help_modal #help_info_container {
+  width: 25rem;
+  height: 15rem;
+  border-radius: 20px;
+  background-color: var(--form_colour);
+}
+#help_modal #help_info_container h4 {
+  text-align: center;
+}
+
+@media (max-width: 460px) {
+  .colour_wrapper {
+    margin: 5% 0 5% 0;
+    min-width: 100% !important;
+  }
+  #help_info_container {
+    width: 90% !important;
+  }
 }/*# sourceMappingURL=index.css.map */

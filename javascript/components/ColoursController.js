@@ -14,6 +14,15 @@ export class ColoursController {
     }
 
     validateCssSupport(colour) {
-        return this.types.includes(colour)
+        return CSS.supports('color', colour)
+    }
+
+    validateCssFormat(colour) {
+        return this.types.filter(format => colour.includes(format)).length > 0;
+    }
+
+    removeColour(key) {
+        const filtered_colours_list = this.colours_list.filter(colour => colour.getKey !== key)
+        this.colours_list = filtered_colours_list
     }
 }
